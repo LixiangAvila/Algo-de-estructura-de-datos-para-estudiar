@@ -27,10 +27,10 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
         
         teclado.nextLine(); // saca la cantidad ingresada
         
-        opc=menu(teclado);
         
         do
         {
+            opc=menu(teclado);
             switch(opc)
             {
                 case 'a':
@@ -50,12 +50,19 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     break;
                 case 'f'|'F':
                     System.out.println("modificar dato");
+                    break;
                 case 'g'|'G':
                     System.out.println("intercambiar dato");
+                    break;
                 case 'h'|'H':
                     System.out.println("eliminar dato");
+                    break;
                 default:
                     System.out.println("asdfr");
+                break;
+                case 'x'|'X':
+                    System.out.println("saliendo");
+                break;
             }
             System.out.println("wefsgrdh");
             
