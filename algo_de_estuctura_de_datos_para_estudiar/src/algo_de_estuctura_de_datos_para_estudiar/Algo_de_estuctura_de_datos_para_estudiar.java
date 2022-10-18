@@ -4,6 +4,14 @@ package algo_de_estuctura_de_datos_para_estudiar;
 import java.util.Scanner;
 
 class Cola {
+    private int arreglo[], fin;
+    
+    Cola (int x)
+    {
+        fin=-1;
+        arreglo=new int[x];
+    }
+    
     
 }
 
@@ -27,6 +35,8 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
         
         teclado.nextLine(); // saca la cantidad ingresada
         
+        Cola cx;
+        cx= new Cola(max);
         
         do
         {
@@ -35,6 +45,13 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
             {
                 case 'a':
                     System.out.println("Pon dato a agregar");
+                    int dat;
+                    dat=teclado.nextInt();
+                    
+                    teclado.nextLine();     //extrae el dato
+                    
+
+                    
                 break;    
                 case 'b':
                     System.out.println("exhibe algo");
@@ -64,8 +81,6 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     System.out.println("saliendo");
                 break;
             }
-            System.out.println("wefsgrdh");
-            
         }
         while(opc!='x' && opc!='X');
             
