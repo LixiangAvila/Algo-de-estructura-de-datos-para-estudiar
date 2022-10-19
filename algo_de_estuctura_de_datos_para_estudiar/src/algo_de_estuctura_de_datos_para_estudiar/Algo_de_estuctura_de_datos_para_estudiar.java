@@ -1,6 +1,7 @@
 
 package algo_de_estuctura_de_datos_para_estudiar;
 
+import java.awt.BorderLayout;
 import java.util.Scanner;
 
 class Cola {
@@ -45,12 +46,20 @@ class Cola {
     }
     
     boolean intercambiar (){
+        int posicionPrimerDato,primerDato, posicionSegundoDato, segundoDato;
         for (int i=0; i <= fin; i++){
-            System.out.println(i+1);
-            System.out.println(arreglo[i]);            
+            System.out.println(i+1+".-"+arreglo[i]);            
         }
-
-        System.out.println("Elige la pocsicon del primer dato");
+        System.out.println("Elige la posicicon del primer dato: ");
+        Scanner teclado = new Scanner (System.in);
+        posicionPrimerDato=teclado.nextInt();
+        primerDato=arreglo[posicionPrimerDato-1];
+        System.out.println("Elige la posicion del segudno dato: ");
+        posicionSegundoDato=teclado.nextInt();
+        segundoDato=arreglo[posicionSegundoDato-1];
+        
+        arreglo[posicionPrimerDato-1]=segundoDato;
+        arreglo[posicionSegundoDato-1]=primerDato;
         
         return true;
     }
