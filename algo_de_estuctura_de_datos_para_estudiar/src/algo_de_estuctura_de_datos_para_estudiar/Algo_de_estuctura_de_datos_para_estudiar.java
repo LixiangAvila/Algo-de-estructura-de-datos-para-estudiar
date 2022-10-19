@@ -4,7 +4,7 @@ package algo_de_estuctura_de_datos_para_estudiar;
 import java.util.Scanner;
 
 class Cola {
-    private int arreglo[], fin;
+    private int arreglo[], fin, inicio;
     
     Cola (int x)
     {
@@ -43,6 +43,17 @@ class Cola {
         fin--;
         return true;
     }
+    
+    boolean intercambiar (){
+        for (int i=0; i <= fin; i++){
+            System.out.println(i+1);
+            System.out.println(arreglo[i]);            
+        }
+
+        System.out.println("Elige la pocsicon del primer dato");
+        
+        return true;
+    }
 }
 
 public class Algo_de_estuctura_de_datos_para_estudiar {
@@ -50,7 +61,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
     static char menu(Scanner input)
     {
         char opcion;
-        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Buscar \ne.-Limpiar \nf.-Modificar \ng.-Intercambiar \nh.-Eliminar \nx.-Salir");
+        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Intercambiar \ne.-Limpiar \nf.-Modificar \ng.-Buscar \nh.-Eliminar \nx.-Salir");
         opcion=input.nextLine().charAt(0);
         return opcion;
     }
@@ -99,7 +110,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\nCola vacia...");
                 break;
                 case 'd'|'D':
-                    System.out.println("buscar dato");
+                    cx.intercambiar();
                 break;
                 case 'e'|'E':
                     System.out.println("limpiar datos");
