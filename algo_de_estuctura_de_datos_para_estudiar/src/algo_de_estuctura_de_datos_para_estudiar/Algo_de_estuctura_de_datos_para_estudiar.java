@@ -47,6 +47,8 @@ class Cola {
     
     boolean intercambiar (){
         int posicionPrimerDato,primerDato, posicionSegundoDato, segundoDato;
+        if(fin == -1)
+            return false;
         for (int i=0; i <= fin; i++){
             System.out.println(i+1+".-"+arreglo[i]);            
         }
@@ -63,6 +65,45 @@ class Cola {
         
         return true;
     }
+    
+    boolean editar ()
+    {
+        int posicionParaEditar, datoNuevo;
+        if (fin == -1)
+            return false;
+        for (int i=0; i <= fin; i++){
+            System.out.println(i+1+".-"+arreglo[i]);   
+        }
+        System.out.println("Elige la posicion del dato a editar");
+        Scanner teclado = new Scanner (System.in);
+        posicionParaEditar= teclado.nextInt();
+        System.out.println("Ingresa el nuevo dato: ");
+        datoNuevo= teclado.nextInt();
+        arreglo[posicionParaEditar-1]=datoNuevo;
+        System.out.println("Dato editado: ");
+        return true;   
+    }
+    
+    boolean avanzarVariosDatos ()
+    {
+        if (fin == -1)
+            return false;
+        int numeroDeDatos;
+        System.out.println("Escriba cuantos datos va a eliminar");
+        Scanner teclado = new Scanner (System.in);
+        numeroDeDatos=teclado.nextInt();
+        int dato[];
+        dato = new int [numeroDeDatos];
+        
+            for (int i=0; i<=numeroDeDatos-1; i++){
+                dato[i]=arreglo[i];
+            }
+            for (int i=0; i<=fin; i++){
+                arreglo[i]=arreglo[i+numeroDeDatos];
+                fin--;
+            }
+        return true;
+    }
 }
 
 public class Algo_de_estuctura_de_datos_para_estudiar {
@@ -70,7 +111,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
     static char menu(Scanner input)
     {
         char opcion;
-        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Intercambiar \ne.-Limpiar \nf.-Modificar \ng.-Buscar \nh.-Eliminar \nx.-Salir");
+        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Intercambiar \ne.-Editar \nf.-Avanzar varios datos \ng.-Buscar \nh.-Eliminar \nx.-Salir");
         opcion=input.nextLine().charAt(0);
         return opcion;
     }
@@ -119,13 +160,22 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\nCola vacia...");
                 break;
                 case 'd'|'D':
-                    cx.intercambiar();
+                    if(cx.intercambiar())
+                        System.out.println("");
+                    else
+                        System.out.println("\nCola vacia");
                 break;
                 case 'e'|'E':
-                    System.out.println("limpiar datos");
+                    if(cx.editar())
+                        System.out.println("");
+                    else
+                        System.out.println("Cola llena");
                     break;
                 case 'f'|'F':
-                    System.out.println("modificar dato");
+                    if(cx.avanzarVariosDatos())
+                        System.out.println("Datos avanzados");
+                    else
+                        System.out.println("\n Cola vacia");
                     break;
                 case 'g'|'G':
                     System.out.println("intercambiar dato");
