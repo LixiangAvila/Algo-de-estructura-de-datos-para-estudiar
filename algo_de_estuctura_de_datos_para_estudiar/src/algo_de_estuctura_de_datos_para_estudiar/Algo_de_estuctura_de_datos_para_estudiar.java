@@ -32,9 +32,17 @@ class Cola {
                 System.out.println(arreglo[i]);
         }
     }
-
     
-    
+    boolean avanzar(int dat[])
+    {
+        if(fin == -1)
+            return false;
+        dat[0]=arreglo[0];
+        for(int i=0; i < fin; i++)
+            arreglo[i]=arreglo[i+1];
+        fin--;
+        return true;
+    }
 }
 
 public class Algo_de_estuctura_de_datos_para_estudiar {
@@ -73,15 +81,22 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     
                     teclado.nextLine();     //extrae el dato
               
-                    
-                    
-                    
+                    if (cx.agregar(dat))
+                        System.out.println("Dato agregado... ");
+                    else
+                        System.out.println("Cola llena, no se puede agregar dato");
                 break;    
                 case 'b':
-                    System.out.println("exhibe algo");
+                    cx.exhibir();
                 break;
                 case 'c'|'C':
-                    System.out.println("Avanzar dato");
+                    int dato[];
+                    
+                    dato=new int[1];
+                    if (cx.avanzar(dato))
+                        System.out.println("\n El dato: "+ dato[0] + " avanzo en la cola...");
+                    else
+                        System.out.println("\nCola vacia...");
                 break;
                 case 'd'|'D':
                     System.out.println("buscar dato");
