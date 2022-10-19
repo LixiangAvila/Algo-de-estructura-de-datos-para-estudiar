@@ -12,6 +12,28 @@ class Cola {
         arreglo=new int[x];
     }
     
+    boolean agregar (int dato)
+    {
+       if(fin == arreglo.length-1)
+           return false;
+       fin++;
+       arreglo[fin]=dato;
+       return true;
+    }
+    
+    void exhibir()
+    {
+        if(fin == -1)
+            System.out.println("cola vacia");
+        else
+        {
+            System.out.println("contenido de la cola");
+            for (int i=0; i <= fin; i++)
+                System.out.println(arreglo[i]);
+        }
+    }
+
+    
     
 }
 
@@ -38,6 +60,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
         Cola cx;
         cx= new Cola(max);
         
+        
         do
         {
             opc=menu(teclado);
@@ -49,8 +72,9 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     dat=teclado.nextInt();
                     
                     teclado.nextLine();     //extrae el dato
+              
                     
-
+                    
                     
                 break;    
                 case 'b':
