@@ -44,17 +44,24 @@ class Cola {
         return true;
     }
     
-    boolean intercambiar (int posicionPrimerDato, int posicionSegundoDato){
-        int primerDato, segundoDato;
+    boolean intercambiar (){
+        int primerDato, segundoDato,posicionPrimerDato, posicionSegundoDato;
         if(fin == -1)
             return false;
-        else{
+        for (int i=0; i <= fin; i++){
+                System.out.println(i+1+".-"+arreglo[i]);
+        }
+        System.out.println("Elige la posicicon del primer dato: ");
+        Scanner teclado = new Scanner(System.in);
+        posicionPrimerDato=teclado.nextInt();
+        System.out.println("Elige la posicion del segudno dato: ");
+        posicionSegundoDato=teclado.nextInt();
         primerDato=arreglo[posicionPrimerDato-1];
         segundoDato=arreglo[posicionSegundoDato-1];
         arreglo[posicionPrimerDato-1]=segundoDato;
         arreglo[posicionSegundoDato-1]=primerDato;
         return true;
-        }
+        
     }
     
     boolean editar ()
@@ -162,14 +169,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\nCola vacia...");
                 break;
                 case 'd'|'D':
-                    int posicionPrimerDato, posicionSegundoDato;
-                    cx.exhibir();
-                    System.out.println("Elige la posicicon del primer dato: ");
-                    posicionPrimerDato=teclado.nextInt();
-                    System.out.println("Elige la posicion del segudno dato: ");
-                    posicionSegundoDato=teclado.nextInt();
-
-                    if(cx.intercambiar(posicionPrimerDato,posicionSegundoDato))
+                    if(cx.intercambiar())
                         System.out.println("Datos cambiados");
                     else
                         System.out.println("\nCola vacia");
