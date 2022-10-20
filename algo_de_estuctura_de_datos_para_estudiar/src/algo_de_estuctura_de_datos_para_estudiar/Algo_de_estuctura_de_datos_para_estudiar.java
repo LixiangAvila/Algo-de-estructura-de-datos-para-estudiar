@@ -1,7 +1,6 @@
 
 package algo_de_estuctura_de_datos_para_estudiar;
 
-import java.awt.BorderLayout;
 import java.util.Scanner;
 
 class Cola {
@@ -30,7 +29,7 @@ class Cola {
         {
             System.out.println("contenido de la cola");
             for (int i=0; i <= fin; i++)
-                System.out.println(arreglo[i]);
+                System.out.println(i+1+".-"+arreglo[i]);
         }
     }
     
@@ -45,25 +44,17 @@ class Cola {
         return true;
     }
     
-    boolean intercambiar (){
-        int posicionPrimerDato,primerDato, posicionSegundoDato, segundoDato;
+    boolean intercambiar (int posicionPrimerDato, int posicionSegundoDato){
+        int primerDato, segundoDato;
         if(fin == -1)
             return false;
-        for (int i=0; i <= fin; i++){
-            System.out.println(i+1+".-"+arreglo[i]);            
-        }
-        System.out.println("Elige la posicicon del primer dato: ");
-        Scanner teclado = new Scanner (System.in);
-        posicionPrimerDato=teclado.nextInt();
+        else{
         primerDato=arreglo[posicionPrimerDato-1];
-        System.out.println("Elige la posicion del segudno dato: ");
-        posicionSegundoDato=teclado.nextInt();
         segundoDato=arreglo[posicionSegundoDato-1];
-        
         arreglo[posicionPrimerDato-1]=segundoDato;
         arreglo[posicionSegundoDato-1]=primerDato;
-        
         return true;
+        }
     }
     
     boolean editar ()
@@ -104,6 +95,17 @@ class Cola {
             }
         return true;
     }
+    
+     boolean limpiarTodo ()
+    {
+        //corregir despues
+        for (int i=0; i <= fin; i++){
+            arreglo[i]=fin+1;
+            fin--;
+        }
+        
+     return true;
+    }
 }
 
 public class Algo_de_estuctura_de_datos_para_estudiar {
@@ -111,7 +113,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
     static char menu(Scanner input)
     {
         char opcion;
-        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Intercambiar \ne.-Editar \nf.-Avanzar varios datos \ng.-Buscar \nh.-Eliminar \nx.-Salir");
+        System.out.println("\na.-Agregar \nb.-Exhibir \nc.-Avanzar \nd.-Intercambiar \ne.-Editar \nf.-Avanzar varios datos \ng.-Limpiar todo \nh.-Buscar \nx.-Salir");
         opcion=input.nextLine().charAt(0);
         return opcion;
     }
@@ -160,8 +162,15 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\nCola vacia...");
                 break;
                 case 'd'|'D':
-                    if(cx.intercambiar())
-                        System.out.println("");
+                    int posicionPrimerDato, posicionSegundoDato;
+                    cx.exhibir();
+                    System.out.println("Elige la posicicon del primer dato: ");
+                    posicionPrimerDato=teclado.nextInt();
+                    System.out.println("Elige la posicion del segudno dato: ");
+                    posicionSegundoDato=teclado.nextInt();
+
+                    if(cx.intercambiar(posicionPrimerDato,posicionSegundoDato))
+                        System.out.println("Datos cambiados");
                     else
                         System.out.println("\nCola vacia");
                 break;
@@ -169,7 +178,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     if(cx.editar())
                         System.out.println("");
                     else
-                        System.out.println("Cola llena");
+                        System.out.println("Cola vacia");
                     break;
                 case 'f'|'F':
                     if(cx.avanzarVariosDatos())
@@ -178,7 +187,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\n Cola vacia");
                     break;
                 case 'g'|'G':
-                    System.out.println("intercambiar dato");
+                    System.out.println("todo  eliminado");
                     break;
                 case 'h'|'H':
                     System.out.println("eliminar dato");
