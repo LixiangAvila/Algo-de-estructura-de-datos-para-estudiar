@@ -29,7 +29,7 @@ class Cola {
         {
             System.out.println("contenido de la cola");
             for (int i=0; i <= fin; i++)
-                System.out.println(i + ".-" + arreglo[i]);
+                System.out.println(i+1 + ".-" + arreglo[i]);
         }
     }
     
