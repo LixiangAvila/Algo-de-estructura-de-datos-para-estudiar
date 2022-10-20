@@ -29,7 +29,7 @@ class Cola {
         {
             System.out.println("contenido de la cola");
             for (int i=0; i <= fin; i++)
-                System.out.println(i+1+".-"+arreglo[i]);
+                System.out.println(i + ".-" + arreglo[i]);
         }
     }
     
@@ -114,6 +114,23 @@ class Cola {
         
      return true;
     }
+     boolean buscar ()
+     {
+         int datoParaBuscar, posicionDeDato;
+         int[] arregloBusqueda;
+         posicionDeDato=0;
+         arregloBusqueda = new int[arreglo.length];
+         System.out.println("Ponga el dato a buscar");
+         Scanner teclado = new Scanner(System.in);
+         datoParaBuscar=teclado.nextInt();
+         for (int i=0 ; i <=fin; i++){
+             if(arreglo[i]== datoParaBuscar){
+                 posicionDeDato=posicionDeDato + i;
+             }
+         }
+         System.out.println("el dato se encuentra en las posiciones: " + posicionDeDato);
+         return true;
+     }
 }
 
 public class Algo_de_estuctura_de_datos_para_estudiar {
@@ -194,7 +211,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("cola vacia");
                     break;
                 case 'h'|'H':
-                    System.out.println("eliminar dato");
+                    cx.buscar();
                     break;
                 default:
                     System.out.println("asdfr");
