@@ -105,9 +105,10 @@ class Cola {
     
      boolean limpiarTodo ()
     {
-        //corregir despues
-        for (int i=0; i <= fin; i++){
-            arreglo[i]=fin+1;
+        if (fin == -1)
+            return false;
+        for (int i=0; i <= fin+1; i++){
+            arreglo[i]=arreglo[fin+1];
             fin--;
         }
         
@@ -187,7 +188,10 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\n Cola vacia");
                     break;
                 case 'g'|'G':
-                    System.out.println("todo  eliminado");
+                    if(cx.limpiarTodo())
+                        System.out.println("todo  eliminado");
+                    else
+                        System.out.println("cola vacia");
                     break;
                 case 'h'|'H':
                     System.out.println("eliminar dato");
