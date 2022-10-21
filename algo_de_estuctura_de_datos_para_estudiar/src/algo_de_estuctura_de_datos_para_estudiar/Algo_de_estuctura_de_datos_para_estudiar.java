@@ -78,7 +78,7 @@ class Cola {
         Scanner teclado = new Scanner (System.in);
         posicionParaEditar= teclado.nextInt();
         System.out.println("Ingresa el nuevo dato: ");
-        datoNuevo= teclado.nextLine().charAt(0);
+        datoNuevo= teclado.next().charAt(0);
         arreglo[posicionParaEditar-1]=datoNuevo;
         System.out.println("Dato editado ");
         return true;   
