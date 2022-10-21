@@ -80,7 +80,7 @@ class Cola {
         System.out.println("Ingresa el nuevo dato: ");
         datoNuevo= teclado.nextLine().charAt(0);
         arreglo[posicionParaEditar-1]=datoNuevo;
-        System.out.println("Dato editado: ");
+        System.out.println("Dato editado ");
         return true;   
     }
     
@@ -89,7 +89,7 @@ class Cola {
         if (fin == -1)
             return false;
         int numeroDeDatos;
-        System.out.println("Escriba cuantos datos va a eliminar");
+        System.out.println("Escriba cuantos datos va a avanzar");
         Scanner teclado = new Scanner (System.in);
         numeroDeDatos=teclado.nextInt();
         char dato[];
