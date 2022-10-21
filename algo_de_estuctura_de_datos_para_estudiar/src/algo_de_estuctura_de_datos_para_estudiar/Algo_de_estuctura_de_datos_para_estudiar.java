@@ -143,7 +143,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
         opcion=input.nextLine().charAt(0);
         return opcion;
     }
-    public static void main(char[] args) {
+    public static void main(String[] args) {
         int max;
         char opc;
         
