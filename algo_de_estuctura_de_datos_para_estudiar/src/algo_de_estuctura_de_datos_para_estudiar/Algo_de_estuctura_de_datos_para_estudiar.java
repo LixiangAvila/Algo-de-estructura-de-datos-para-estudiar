@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 class Cola {
     private int fin, inicio;
-    private String arreglo[];
+    private char arreglo[];
     Cola (int x)
     {
         fin=-1;
-        arreglo=new String[x];
+        arreglo=new char[x];
     }
     
-    boolean agregar (String dato)
+    boolean agregar (char dato)
     {
        if(fin == arreglo.length-1)
            return false;
@@ -33,7 +33,7 @@ class Cola {
         }
     }
     
-    boolean avanzar(String dat[])
+    boolean avanzar(char dat[])
     {
         if(fin == -1)
             return false;
@@ -46,7 +46,7 @@ class Cola {
     
     boolean intercambiar (){
         int posicionPrimerDato, posicionSegundoDato;
-        String primerDato, segundoDato;
+        char primerDato, segundoDato;
         if(fin == -1)
             return false;
         for (int i=0; i <= fin; i++){
@@ -68,7 +68,7 @@ class Cola {
     boolean editar ()
     {
         int posicionParaEditar; 
-        String datoNuevo;
+        char datoNuevo;
         if (fin == -1)
             return false;
         for (int i=0; i <= fin; i++){
@@ -78,7 +78,7 @@ class Cola {
         Scanner teclado = new Scanner (System.in);
         posicionParaEditar= teclado.nextInt();
         System.out.println("Ingresa el nuevo dato: ");
-        datoNuevo= teclado.nextLine();
+        datoNuevo= teclado.nextLine().charAt(0);
         arreglo[posicionParaEditar-1]=datoNuevo;
         System.out.println("Dato editado: ");
         return true;   
@@ -92,8 +92,8 @@ class Cola {
         System.out.println("Escriba cuantos datos va a eliminar");
         Scanner teclado = new Scanner (System.in);
         numeroDeDatos=teclado.nextInt();
-        String dato[];
-        dato = new String [numeroDeDatos];
+        char dato[];
+        dato = new char[numeroDeDatos];
         
             for (int i=0; i<=numeroDeDatos-1; i++){
                 dato[i]=arreglo[i];
@@ -119,11 +119,11 @@ class Cola {
      boolean buscar ()
      {
          int posicionDeDato;
-         String datoParaBuscar;
+         char datoParaBuscar;
          posicionDeDato=0;
          System.out.println("Ponga el dato a buscar");
          Scanner teclado = new Scanner(System.in);
-         datoParaBuscar=teclado.nextLine();
+         datoParaBuscar=teclado.nextLine().charAt(0);
          for (int i=0 ; i <=fin; i++){
              if(arreglo[i]== datoParaBuscar){
                  posicionDeDato=posicionDeDato + i;
@@ -143,7 +143,7 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
         opcion=input.nextLine().charAt(0);
         return opcion;
     }
-    public static void main(String[] args) {
+    public static void main(char[] args) {
         int max;
         char opc;
         
@@ -165,8 +165,8 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
             {
                 case 'a':
                     System.out.println("Pon dato a agregar");
-                    String dat;
-                    dat=teclado.nextLine();
+                    char dat;
+                    dat=teclado.nextLine().charAt(0);
                                   
                     if (cx.agregar(dat))
                         System.out.println("Dato agregado... ");
@@ -177,9 +177,9 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                     cx.exhibir();
                 break;
                 case 'c'|'C':
-                    String dato[];
+                    char dato[];
                     
-                    dato=new String[1];
+                    dato=new char[1];
                     if (cx.avanzar(dato))
                         System.out.println("\n El dato: "+ dato[0] + " avanzo en la cola...");
                     else
