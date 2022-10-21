@@ -56,20 +56,10 @@ class Cola {
         
     }
     
-    boolean editar ()
+    boolean editar (int posicionParaEditar,char datoNuevo)
     {
-        int posicionParaEditar; 
-        char datoNuevo;
         if (fin == -1)
             return false;
-        for (int i=0; i <= fin; i++){
-            System.out.println(i+1+".-"+arreglo[i]);   
-        }
-        System.out.println("Elige la posicion del dato a editar");
-        Scanner teclado = new Scanner (System.in);
-        posicionParaEditar= teclado.nextInt();
-        System.out.println("Ingresa el nuevo dato: ");
-        datoNuevo= teclado.next().charAt(0);
         arreglo[posicionParaEditar-1]=datoNuevo;
         System.out.println("Dato editado ");
         return true;   
@@ -193,8 +183,15 @@ public class Algo_de_estuctura_de_datos_para_estudiar {
                         System.out.println("\nCola vacia");
                 break;
                 case 'e'|'E':
-                    if(cx.editar())
-                        System.out.println("");
+                    int posicionParaEditar; 
+                    char datoNuevo;
+                    System.out.println("Elige la posicion del dato a editar");
+                    posicionParaEditar= teclado.nextInt();
+                    System.out.println("Ingresa el nuevo dato: ");
+                    datoNuevo= teclado.next().charAt(0);
+                    
+                    if(cx.editar(posicionParaEditar,datoNuevo))
+                        System.out.println("dato editado");
                     else
                         System.out.println("Cola vacia");
                     break;
