@@ -59,7 +59,7 @@ public class Algo_de_estructura_de_datos_para_estudiar_con_nodos {
         while(opc!='x' && opc!='X');
             
         
-        
+        //Recordar acomodar el menu para la clase cola, y la clase nodo cola dentro de la otra clase
     
     }
     
